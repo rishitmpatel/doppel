@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doppel"
+version = "0.1.0"
+description = "Find and safely clean up duplicate and look-alike photos. Free, offline, private."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Rishit Patel" }]
+keywords = ["duplicate photos", "photo cleaner", "perceptual hash", "desktop app"]
+dependencies = [
+    "PySide6>=6.6",
+    "Pillow>=10",
+    "numpy>=1.23",
+    "send2trash>=1.8",
+]
+
+[project.optional-dependencies]
+heic = ["pillow-heif>=0.16"]
+dev = ["pytest>=7", "pillow-heif>=0.16", "pyinstaller>=6"]
+
+[project.gui-scripts]
+doppel = "doppel.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+doppel = ["gui/assets/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
