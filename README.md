@@ -85,7 +85,7 @@ Build a standalone app yourself:
 pyinstaller packaging/doppel.spec --noconfirm   # output in dist/
 ```
 
-Releases are built automatically by GitHub Actions for all three platforms when a `v*` tag is pushed.
+Every push to `main` that touches the app rebuilds all three platforms with GitHub Actions and attaches them to the release for the version in `pyproject.toml`.
 
 ## Project layout
 
